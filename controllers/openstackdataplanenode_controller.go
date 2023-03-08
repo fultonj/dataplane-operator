@@ -273,6 +273,9 @@ func (r *OpenStackDataPlaneNodeReconciler) GenerateInventory(ctx context.Context
 	}
 	host.Vars["ansible_host"] = hostName
 
+	fmt.Println("Do we have instance.Spec.Node.CephSecrets?")
+	fmt.Println(instance.Spec.Node.CephSecrets)
+
 	ansibleVarsData := make(map[string]interface{})
 	err = yaml.Unmarshal([]byte(r.GetAnsibleVars(instance, instanceRole)), ansibleVarsData)
 	if err != nil {

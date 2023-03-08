@@ -54,6 +54,12 @@ spec:
                   ansibleVars:
                     description: AnsibleVars for configuring ansible
                     type: string
+                  cephSecrets:
+                    description: CephSecrets is a list of names where each is a secret
+                      containing ceph client configurartion data
+                    items:
+                      type: string
+                    type: array
                   managed:
                     description: Managed - Whether the node is actually provisioned
                       (True) or should be treated as preprovisioned (False)

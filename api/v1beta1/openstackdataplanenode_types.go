@@ -97,6 +97,10 @@ type NodeSection struct {
 	// Secret.data.ssh-privatekey: <base64 encoded private key contents>
 	// https://kubernetes.io/docs/concepts/configuration/secret/#ssh-authentication-secrets
 	AnsibleSSHPrivateKeySecret string `json:"ansibleSSHPrivateKeySecret"`
+
+	// +kubebuilder:validation:Optional
+	// CephSecrets is a list of names where each is a secret containing ceph client configurartion data
+	CephSecrets []string `json:"cephSecrets,omitempty"`
 }
 
 // DeployStrategySection for fields controlling the deployment
