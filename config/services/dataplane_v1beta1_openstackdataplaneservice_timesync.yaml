@@ -1,0 +1,17 @@
+apiVersion: dataplane.openstack.org/v1beta1
+kind: OpenStackDataPlaneService
+metadata:
+  name: timesync
+spec:
+  label: dataplane-deployment-timesync
+  role:
+    name: "Configure an NTP and/or PTP implementation"
+    hosts: "all"
+    strategy: "linear"
+    become: true
+    tasks:
+      - name: "Call linux-system-roles.timesync"
+        import_role:
+          name: "linux-system-roles.timesync"
+        tags:
+          - "timesync"
